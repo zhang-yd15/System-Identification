@@ -1,0 +1,13 @@
+v_train=dryer(1:750,1);
+t_train=dryer(1:750,2);
+v_test=dryer(751:1000,1);
+t_test=dryer(751:1000,2);
+minv=min(v_train);
+maxv=max(v_train);
+net=newff([minv maxv],[8 1],{'radbas','purelin'});
+net.trainparam.goal=0.00221;
+net=train(net,[v_train]',[t_train]');
+
+%*********************************************
+
+
